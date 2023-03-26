@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,15 +21,43 @@ namespace Farmaceutica
             Mucosolvan mucosolvan = new Mucosolvan();
             Nastizol nastizol = new Nastizol();
             Tabcin tabcin = new Tabcin();
+
             //inyecciones para la gripe 
             TIV tIV = new TIV();
             QIV qIV = new QIV();
             IIV iIV= new IIV();
             LAIV lAIV = new LAIV();
+
             //pomadas para la gripe
             VicksVapoRub vicksVapo = new VicksVapoRub();
             PomadaMentolEucalipto mentolEucalipto = new PomadaMentolEucalipto();
 
+            //Pastillas para la Anemia
+            FerrousSulfate ferrousSulfate = new FerrousSulfate();
+            FerrousGluconate ferrousGluconate = new FerrousGluconate();
+            FerrousFumarate ferrousFumarate = new FerrousFumarate();
+            Polysaccharide polysaccharide = new Polysaccharide();
+            VitaminB12 vitaminB12 = new VitaminB12();
+            FolicAcid folicAcid = new FolicAcid();
+            VitaminC vitaminC = new VitaminC();
+            VitaminE vitaminE = new VitaminE();
+
+            //Inyecciones para la Anemia
+            HierroIntravenoso hierroIntravenoso = new HierroIntravenoso();
+            Eritropoyetina eritropoyetina = new Eritropoyetina();
+            VitaminaB12 vitaminaB12 = new VitaminaB12();
+
+            //Pastillas para la Diabetes
+            Metformina metformina = new Metformina();
+            Sulfonilureas sulfonilureas = new Sulfonilureas();
+            Meglitinidas meglitinidas = new Meglitinidas();
+            InhibidoresDPP inhibidoresDPP = new InhibidoresDPP();
+            InhibidoresSGLT2 inhibidoresSGLT2 = new InhibidoresSGLT2();
+
+            //Inyecciones para la Diabetes
+            Insulina insulina = new Insulina();
+            InhibidoresDipeptidilDPP dPP = new InhibidoresDipeptidilDPP();
+            Glucagon glucagon = new Glucagon();
 
             int Option;
 
@@ -76,7 +105,7 @@ namespace Farmaceutica
                             while (!int.TryParse(entrada1, out Option))
                             {
                                 Console.WriteLine("Error: Debe ingresar un número entero.");
-                                Console.WriteLine("\nIngrese el numero de la opcion (1-9)");
+                                Console.WriteLine("\nIngrese el numero de la opcion (1-7)");
                                 entrada = Console.ReadLine();
                             }
                             switch (Option)
@@ -331,10 +360,361 @@ namespace Farmaceutica
                                 case 2:
                                     do
                                     {
-                                        
+                                        Console.WriteLine("__________ MEDICAMENTOS PARA LA ANEMIA__________\n");
+                                        Console.WriteLine("1.Pastillas" + "\n2.Inyecciones" + "\n3.Salir");
+                                        Console.WriteLine("\nIngrese el numero de la opcion (1-3)");
+
+                                        string entrada2 = Console.ReadLine();
+
+                                        while (!int.TryParse(entrada2, out Option))
+                                        {
+                                            Console.WriteLine("Error: Debe ingresar un número entero.");
+                                            Console.WriteLine("\nIngrese el numero de la opcion (1-3)");
+                                            entrada = Console.ReadLine();
+                                        }
+                                        switch (Option)
+                                        {
+                                            case 1:
+                                                do
+                                                {
+                                                    Console.WriteLine("__________Catalogo de pastillas para la Anemia__________\n");
+                                                    List<string> listaPastillasAnemia = new List<string>() { "1.Ferrous Sulfate ", "\n2.Ferrous Gluconate", "\n3.Ferrous Fumarate ", "\n4.Polysaccharide Iron Complex ", "\n5.Vitamin B12 ", "\n6.Folic Acid ", "\n7.Vitamin C ", "\n8.Vitamin E ", "\n9.Salir" };
+                                                    foreach (string gripeP in listaPastillasAnemia)
+                                                    {
+                                                        Console.WriteLine($"{gripeP}");
+                                                    }
+                                                    Console.WriteLine("\nIngrese el numero de la opcion (1-9)");
+                                                    string entrada3 = Console.ReadLine();
+
+                                                    while (!int.TryParse(entrada3, out Option))
+                                                    {
+                                                        Console.WriteLine("Error: Debe ingresar un número entero.");
+                                                        Console.WriteLine("\nIngrese el numero de la opcion (1-9)");
+                                                        entrada = Console.ReadLine();
+                                                    }
+                                                    switch (Option)
+                                                    {
+                                                        case 1:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {ferrousSulfate.Nombre()} \n Laboratorio:  \n Componentes: {ferrousSulfate.Componentes()} \n Cantigad mg: {ferrousSulfate.CantidadMG()}\n Precio: $ {ferrousSulfate.Precio()}\n Descuento: {ferrousSulfate.Descuento()}\n Clasificación: {ferrousSulfate.Clasificacion()}\n");
+                                                            ferrousSulfate.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 2:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {ferrousGluconate.Nombre()} \n Laboratorio:  \n Componentes: {ferrousGluconate.Componentes()} \n Cantigad mg: {ferrousGluconate.CantidadMG()}\n Precio: $ {ferrousGluconate.Precio()}\n Descuento: {ferrousGluconate.Descuento()}\n Clasificación: {ferrousGluconate.Clasificacion()}\n");
+                                                            ferrousGluconate.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 3:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {ferrousFumarate.Nombre()} \n Laboratorio:  \n Componentes: {ferrousFumarate.Componentes()} \n Cantigad mg: {ferrousFumarate.CantidadMG()}\n Precio: $ {ferrousFumarate.Precio()}\n Descuento: {ferrousFumarate.Descuento()}\n Clasificación: {ferrousFumarate.Clasificacion()}\n");
+                                                            ferrousFumarate.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 4:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {polysaccharide.Nombre()} \n Laboratorio:  \n Componentes: {polysaccharide.Componentes()} \n Cantigad mg: {polysaccharide.CantidadMG()}\n Precio: $ {polysaccharide.Precio()}\n Descuento: {polysaccharide.Descuento()}\n Clasificación: {polysaccharide.Clasificacion()}\n");
+                                                            polysaccharide.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 5:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {vitaminB12.Nombre()} \n Laboratorio:  \n Componentes: {vitaminB12.Componentes()} \n Cantigad mg: {vitaminB12.CantidadMG()}\n Precio: $ {vitaminB12.Precio()}\n Descuento: {vitaminB12.Descuento()}\n Clasificación: {vitaminB12.Clasificacion()}\n");
+                                                            vitaminB12.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 6:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {folicAcid.Nombre()} \n Laboratorio:  \n Componentes: {folicAcid.Componentes()} \n Cantigad mg: {folicAcid.CantidadMG()}\n Precio: $ {folicAcid.Precio()}\n Descuento: {folicAcid.Descuento()}\n Clasificación: {folicAcid.Clasificacion()}\n");
+                                                            folicAcid.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 7:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {vitaminC.Nombre()} \n Laboratorio:  \n Componentes: {vitaminC.Componentes()} \n Cantigad mg: {vitaminC.CantidadMG()}\n Precio: $ {vitaminC.Precio()}\n Descuento: {vitaminC.Descuento()}\n Clasificación: {vitaminC.Clasificacion()}\n");
+                                                            vitaminC.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 8:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {vitaminE.Nombre()} \n Laboratorio:  \n Componentes: {vitaminE.Componentes()} \n Cantigad mg: {vitaminE.CantidadMG()}\n Precio: $ {vitaminE.Precio()}\n Descuento: {vitaminE.Descuento()}\n Clasificación: {vitaminE.Clasificacion()}\n");
+                                                            vitaminE.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 9:
+                                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                                            Console.WriteLine("Fin de las consultas");
+                                                            Console.ReadLine();
+                                                            Environment.Exit(0);
+
+                                                            break;
+                                                        default:
+
+                                                            Console.WriteLine("Opción no válida.");
+                                                            break;
+                                                    }
+                                                    Console.ReadKey();
+
+                                                }
+                                                while (Option != 9);
+                                                break;
+                                            case 2:
+                                                do
+                                                {
+                                                    Console.WriteLine("__________Catalogo de inyecciones para la Anemia__________\n");
+                                                    List<string> listaInyeccionesGripe = new List<string>() { "1.Hierro intravenoso ", "\n2.Eritropoyetina ", "\n3.Vitamina B12 ",  "\n4.Salir" };
+                                                    foreach (string gripeP in listaInyeccionesGripe)
+                                                    {
+                                                        Console.WriteLine($"{gripeP}");
+                                                    }
+                                                    Console.WriteLine("\nIngrese el numero de la opcion (1-4)");
+                                                    string entrada3 = Console.ReadLine();
+
+                                                    while (!int.TryParse(entrada3, out Option))
+                                                    {
+                                                        Console.WriteLine("Error: Debe ingresar un número entero.");
+                                                        Console.WriteLine("\nIngrese el numero de la opcion (1-4)");
+                                                        entrada = Console.ReadLine();
+                                                    }
+                                                    switch (Option)
+                                                    {
+                                                        case 1:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {hierroIntravenoso.Nombre()} \n Laboratorio:  \n Componentes: {hierroIntravenoso.Componentes()} \n Cantigad mg: {hierroIntravenoso.CantidadML()}\n Precio: $ {hierroIntravenoso.Precio()}\n Descuento: {hierroIntravenoso.Descuento()}\n Clasificación: {hierroIntravenoso.Clasificacion()}\n");
+                                                            hierroIntravenoso.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 2:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {eritropoyetina.Nombre()} \n Laboratorio:  \n Componentes: {eritropoyetina.Componentes()} \n Cantigad mg: {eritropoyetina.CantidadML()}\n Precio: $ {eritropoyetina.Precio()}\n Descuento: {eritropoyetina.Descuento()}\n Clasificación: {eritropoyetina.Clasificacion()}\n");
+                                                            eritropoyetina.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 3:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {vitaminaB12.Nombre()} \n Laboratorio:  \n Componentes: {vitaminaB12.Componentes()} \n Cantigad mg: {vitaminaB12.CantidadML()}\n Precio: $ {vitaminaB12.Precio()}\n Descuento: {vitaminaB12.Descuento()}\n Clasificación: {vitaminaB12.Clasificacion()}\n");
+                                                            vitaminaB12.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                      
+
+                                                        case 4:
+                                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                                            Console.WriteLine("Fin de las consultas");
+                                                            Console.ReadLine();
+                                                            Environment.Exit(0);
+
+                                                            break;
+                                                        default:
+
+                                                            Console.WriteLine("Opción no válida.");
+                                                            break;
+                                                    }
+                                                    Console.ReadKey();
+
+                                                }
+                                                while (Option != 4);
+                                                break;
+                                           
+                                                
+                                            case 4:
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Fin de las consultas");
+                                                Console.ReadLine();
+                                                Environment.Exit(0);
+
+                                                break;
+                                            default:
+
+                                                Console.WriteLine("Opción no válida.");
+                                                break;
+                                        }
+                                        Console.ReadKey();
 
                                     }
-                                    while (Option != 4);
+                                    while (Option != 3);
+                                    break;
+                                case 3:
+                                    do
+                                    {
+                                        Console.WriteLine("__________ MEDICAMENTOS PARA LA DIABETES__________\n");
+                                        Console.WriteLine("1.Pastillas" + "\n2.Inyecciones" + "\n3.Salir");
+                                        Console.WriteLine("\nIngrese el numero de la opcion (1-3)");
+
+                                        string entrada2 = Console.ReadLine();
+
+                                        while (!int.TryParse(entrada2, out Option))
+                                        {
+                                            Console.WriteLine("Error: Debe ingresar un número entero.");
+                                            Console.WriteLine("\nIngrese el numero de la opcion (1-3)");
+                                            entrada2 = Console.ReadLine();
+                                        }
+                                        switch (Option)
+                                        {
+                                            case 1:
+                                                do
+                                                {
+                                                    Console.WriteLine("__________Catalogo de pastillas para la Diabetes__________\n");
+                                                    List<string> listaPastillasDiabetes = new List<string>() { "1.Metformina ", "\n2.Sulfonilureas ", "\n3.Meglitinidas ", "\n4.Inhibidores de la dipeptidil peptidasa-4 (DPP-4) ", "\n5.Inhibidores del cotransportador de sodio-glucosa tipo 2 (SGLT2) ",  "\n6.Salir" };
+                                                    foreach (string gripeP in listaPastillasDiabetes)
+                                                    {
+                                                        Console.WriteLine($"{gripeP}");
+                                                    }
+                                                    Console.WriteLine("\nIngrese el numero de la opcion (1-6)");
+                                                    string entrada3 = Console.ReadLine();
+
+                                                    while (!int.TryParse(entrada3, out Option))
+                                                    {
+                                                        Console.WriteLine("Error: Debe ingresar un número entero.");
+                                                        Console.WriteLine("\nIngrese el numero de la opcion (1-6)");
+                                                        entrada = Console.ReadLine();
+                                                    }
+                                                    switch (Option)
+                                                    {
+                                                        case 1:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {metformina.Nombre()} \n Laboratorio:  \n Componentes: {metformina.Componentes()} \n Cantigad mg: {metformina.CantidadMG()}\n Precio: $ {metformina.Precio()}\n Descuento: {metformina.Descuento()}\n Clasificación: {metformina.Clasificacion()}\n");
+                                                            metformina.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 2:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {sulfonilureas.Nombre()} \n Laboratorio:  \n Componentes: {sulfonilureas.Componentes()} \n Cantigad mg: {sulfonilureas.CantidadMG()}\n Precio: $ {sulfonilureas.Precio()}\n Descuento: {sulfonilureas.Descuento()}\n Clasificación: {sulfonilureas.Clasificacion()}\n");
+                                                            sulfonilureas.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 3:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {meglitinidas.Nombre()} \n Laboratorio:  \n Componentes: {meglitinidas.Componentes()} \n Cantigad mg: {meglitinidas.CantidadMG()}\n Precio: $ {meglitinidas.Precio()}\n Descuento: {meglitinidas.Descuento()}\n Clasificación: {meglitinidas.Clasificacion()}\n");
+                                                            meglitinidas.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 4:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {inhibidoresDPP.Nombre()} \n Laboratorio:  \n Componentes: {inhibidoresDPP.Componentes()} \n Cantigad mg: {inhibidoresDPP.CantidadMG()}\n Precio: $ {inhibidoresDPP.Precio()}\n Descuento: {inhibidoresDPP.Descuento()}\n Clasificación: {inhibidoresDPP.Clasificacion()}\n");
+                                                            inhibidoresDPP.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 5:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {inhibidoresSGLT2.Nombre()} \n Laboratorio:  \n Componentes: {inhibidoresSGLT2.Componentes()} \n Cantigad mg: {inhibidoresSGLT2.CantidadMG()}\n Precio: $ {inhibidoresSGLT2.Precio()}\n Descuento: {inhibidoresSGLT2.Descuento()}\n Clasificación: {inhibidoresSGLT2.Clasificacion()}\n");
+                                                            inhibidoresSGLT2.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                       
+                                                        
+                                                        case 6:
+                                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                                            Console.WriteLine("Fin de las consultas");
+                                                            Console.ReadLine();
+                                                            Environment.Exit(0);
+
+                                                            break;
+                                                        default:
+
+                                                            Console.WriteLine("Opción no válida.");
+                                                            break;
+                                                    }
+                                                    Console.ReadKey();
+
+                                                }
+                                                while (Option != 6);
+                                                break;
+                                            case 2:
+                                                do
+                                                {
+                                                    Console.WriteLine("__________Catalogo de inyecciones para la Diabetes__________\n");
+                                                    List<string> listaInyeccionesDiabetes = new List<string>() { "1.Insulina ", "\n2.Inhibidores de la dipeptidil peptidasa-4 (DPP-4) ", "\n3.Glucagón ", "\n4.Salir" };
+                                                    foreach (string gripeP in listaInyeccionesDiabetes)
+                                                    {
+                                                        Console.WriteLine($"{gripeP}");
+                                                    }
+                                                    Console.WriteLine("\nIngrese el numero de la opcion (1-4)");
+                                                    string entrada3 = Console.ReadLine();
+
+                                                    while (!int.TryParse(entrada3, out Option))
+                                                    {
+                                                        Console.WriteLine("Error: Debe ingresar un número entero.");
+                                                        Console.WriteLine("\nIngrese el numero de la opcion (1-4)");
+                                                        entrada = Console.ReadLine();
+                                                    }
+                                                    switch (Option)
+                                                    {
+                                                        case 1:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {insulina.Nombre()} \n Laboratorio:  \n Componentes: {insulina.Componentes()} \n Cantigad mg: {insulina.CantidadML()}\n Precio: $ {insulina.Precio()}\n Descuento: {insulina.Descuento()}\n Clasificación: {insulina.Clasificacion()}\n");
+                                                            insulina.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 2:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {dPP.Nombre()} \n Laboratorio:  \n Componentes: {dPP.Componentes()} \n Cantigad mg: {dPP.CantidadML()}\n Precio: $ {dPP.Precio()}\n Descuento: {dPP.Descuento()}\n Clasificación: {dPP.Clasificacion()}\n");
+                                                            dPP.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+                                                        case 3:
+                                                            Console.WriteLine("-----DETALLES-----");
+
+                                                            Console.WriteLine($" Nombre: {glucagon.Nombre()} \n Laboratorio:  \n Componentes: {glucagon.Componentes()} \n Cantigad mg: {glucagon.CantidadML()}\n Precio: $ {glucagon.Precio()}\n Descuento: {glucagon.Descuento()}\n Clasificación: {glucagon.Clasificacion()}\n");
+                                                            glucagon.comprar();
+                                                            Console.ReadLine();
+                                                            break;
+
+
+                                                        case 4:
+                                                            Console.ForegroundColor = ConsoleColor.Cyan;
+                                                            Console.WriteLine("Fin de las consultas");
+                                                            Console.ReadLine();
+                                                            Environment.Exit(0);
+
+                                                            break;
+                                                        default:
+
+                                                            Console.WriteLine("Opción no válida.");
+                                                            break;
+                                                    }
+                                                    Console.ReadKey();
+
+                                                }
+                                                while (Option != 4);
+                                                break;
+
+
+                                            case 4:
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Fin de las consultas");
+                                                Console.ReadLine();
+                                                Environment.Exit(0);
+
+                                                break;
+                                            default:
+
+                                                Console.WriteLine("Opción no válida.");
+                                                break;
+                                        }
+                                        Console.ReadKey();
+
+                                    }
+                                    while (Option != 3);
                                     break;
                                 case 7:
                                     Console.ForegroundColor = ConsoleColor.Cyan;
@@ -352,7 +732,7 @@ namespace Farmaceutica
                             Console.ReadKey();
 
                         }
-                        while (Option != 9);
+                        while (Option != 7);
                         break;
 
                         case 2:
