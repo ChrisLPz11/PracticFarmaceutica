@@ -59,6 +59,25 @@ namespace Farmaceutica
             InhibidoresDipeptidilDPP dPP = new InhibidoresDipeptidilDPP();
             Glucagon glucagon = new Glucagon();
 
+            //Instancias de las pastillas para la artritis
+            Esteroides esteroides = new Esteroides();
+            Medicamentos_antirreumáticos_modificadores_de_enfermedad medicamentos_Antirreumáticos_Modificadores_De_Enfermedad = new Medicamentos_antirreumáticos_modificadores_de_enfermedad();
+            Contrairritantes contrairritantes = new Contrairritantes();
+            Anti_inflamatoriosno_esteroides anti_Inflamatoriosno_Esteroides = new Anti_inflamatoriosno_esteroides();
+            //Instancias de las pastillas para la Hipertension
+            Inhibidores_de_la_enzima_convertidora_de_la_angiotensina inhibidores_De_La_Enzima_Convertidora_De_La_Angiotensina = new Inhibidores_de_la_enzima_convertidora_de_la_angiotensina();
+            Diuréticos diuréticos = new Diuréticos();
+            AntagonistasdereceptoresdeangiotensinaII antagonistasdereceptoresdeangiotensinaII = new AntagonistasdereceptoresdeangiotensinaII();
+            Bloqueadores_delos_canales_de_calcio bloqueadores_Delos_Canales_De_Calcio = new Bloqueadores_delos_canales_de_calcio();
+            
+            //Instancias de las pastillas para la Neumonia
+            Cefalexina cefalexina = new Cefalexina();
+            Cefadroxilo cefadroxilo = new Cefadroxilo();
+            Amoxicilina amoxicilina = new Amoxicilina();
+            Cefaclor cefaclor = new Cefaclor();
+            //inyecciones para la Neumonia
+            piperacilina_y_tazobactam piperacilina_Y_Tazobactamb = new piperacilina_y_tazobactam();
+
             int Option;
 
            
@@ -715,6 +734,205 @@ namespace Farmaceutica
 
                                     }
                                     while (Option != 3);
+                                    break;
+
+                                case 4:
+                                    do
+                                    {
+                                        Console.WriteLine("__________Catalogo de pastillas para la Artritis__________\n");
+                                        List<string> listaPastillasArtritis = new List<string>() { "1.Anti_inflamatoriosno_esteroides ", "\n2.Contrairritantes", "\n3.Esteroides ", "\n4.Medicamentos_antirreumáticos_modificadores_de_enfermedad", "\n5.Salir" };
+                                        foreach (string ArtritisP in listaPastillasArtritis)
+                                        {
+                                            Console.WriteLine($"{ArtritisP}");
+                                        }
+                                        Console.WriteLine("\nIngrese el numero de la opcion (1-5)");
+                                        string entrada3 = Console.ReadLine();
+
+                                        while (!int.TryParse(entrada3, out Option))
+                                        {
+                                            Console.WriteLine("Error: Debe ingresar un número entero.");
+                                            Console.WriteLine("\nIngrese el numero de la opcion (1-5)");
+                                            entrada = Console.ReadLine();
+                                        }
+                                        switch (Option)
+                                        {
+                                            case 1:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {anti_Inflamatoriosno_Esteroides.Nombre()} \n Laboratorio:  \n Componentes: {anti_Inflamatoriosno_Esteroides.Componentes()} \n Cantigad mg: {anti_Inflamatoriosno_Esteroides.CantidadMG()}\n Precio: $ {anti_Inflamatoriosno_Esteroides.Precio()}\n Clasificación: {anti_Inflamatoriosno_Esteroides.Clasificacion()}\n");
+                                                anti_Inflamatoriosno_Esteroides.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 2:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {contrairritantes.Nombre()} \n Laboratorio:  \n Componentes: {contrairritantes.Componentes()} \n Cantigad mg: {contrairritantes.CantidadMG()}\n Precio: $ {contrairritantes.Precio()}\n Descuento: {contrairritantes.Descuento()}\n Clasificación: {contrairritantes.Clasificacion()}\n");
+                                                contrairritantes.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 3:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {esteroides.Nombre()} \n Laboratorio:  \n Componentes: {esteroides.Componentes()} \n Cantigad mg: {esteroides.CantidadMG()}\n Precio: $ {esteroides.Precio()}\n Clasificación: {esteroides.Clasificacion()}\n");
+                                                esteroides.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 4:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {medicamentos_Antirreumáticos_Modificadores_De_Enfermedad.Nombre()} \n Laboratorio:  \n Componentes: {medicamentos_Antirreumáticos_Modificadores_De_Enfermedad.Componentes()} \n Cantigad mg: {medicamentos_Antirreumáticos_Modificadores_De_Enfermedad.CantidadMG()}\n Precio: $ {medicamentos_Antirreumáticos_Modificadores_De_Enfermedad.Precio()}\n Clasificación: {medicamentos_Antirreumáticos_Modificadores_De_Enfermedad.Clasificacion()}\n");
+                                                medicamentos_Antirreumáticos_Modificadores_De_Enfermedad.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 5:
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Fin de las consultas");
+                                                Console.ReadLine();
+                                                Environment.Exit(0);
+
+                                                break;
+                                            default:
+
+                                                Console.WriteLine("Opción no válida.");
+                                                break;
+                                        }
+                                        Console.ReadKey();
+
+                                    }
+                                    while (Option != 5);
+                                    break;
+
+                                case 5:
+                                    do
+                                    {
+                                        Console.WriteLine("__________Catalogo de pastillas para la Hipertension__________\n");
+                                        List<string> listaPastillasHipertension = new List<string>() { "1.Diuréticos ", "\n2.Inhibidores_de_la_enzima_convertidora_de_la_angiotensina", "\n3.AntagonistasdereceptoresdeangiotensinaII", "\n4.Bloqueadores_delos_canales_de_calcio", "\n5.Salir" };
+                                        foreach (string HipertensionP in listaPastillasHipertension)
+                                        {
+                                            Console.WriteLine($"{HipertensionP}");
+                                        }
+                                        Console.WriteLine("\nIngrese el numero de la opcion (1-5)");
+                                        string entrada3 = Console.ReadLine();
+
+                                        while (!int.TryParse(entrada3, out Option))
+                                        {
+                                            Console.WriteLine("Error: Debe ingresar un número entero.");
+                                            Console.WriteLine("\nIngrese el numero de la opcion (1-5)");
+                                            entrada = Console.ReadLine();
+                                        }
+                                        switch (Option)
+                                        {
+                                            case 1:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {diuréticos.Nombre()} \n Laboratorio:  \n Componentes: {diuréticos.Componentes()} \n Cantigad mg: {diuréticos.CantidadMG()}\n Precio: $ {diuréticos.Precio()}\n Clasificación: {diuréticos.Clasificacion()}\n");
+                                                diuréticos.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 2:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {inhibidores_De_La_Enzima_Convertidora_De_La_Angiotensina.Nombre()} \n Laboratorio:  \n Componentes: {inhibidores_De_La_Enzima_Convertidora_De_La_Angiotensina.Componentes()} \n Cantigad mg: {inhibidores_De_La_Enzima_Convertidora_De_La_Angiotensina.CantidadMG()}\n Precio: $ {inhibidores_De_La_Enzima_Convertidora_De_La_Angiotensina.Precio()}\n Descuento: {inhibidores_De_La_Enzima_Convertidora_De_La_Angiotensina.Descuento()}\n Clasificación: {inhibidores_De_La_Enzima_Convertidora_De_La_Angiotensina.Clasificacion()}\n");
+                                                inhibidores_De_La_Enzima_Convertidora_De_La_Angiotensina.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 3:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {antagonistasdereceptoresdeangiotensinaII.Nombre()} \n Laboratorio:  \n Componentes: {antagonistasdereceptoresdeangiotensinaII.Componentes()} \n Cantigad mg: {antagonistasdereceptoresdeangiotensinaII.CantidadMG()}\n Precio: $ {antagonistasdereceptoresdeangiotensinaII.Precio()}\n Clasificación: {antagonistasdereceptoresdeangiotensinaII.Clasificacion()}\n");
+                                                antagonistasdereceptoresdeangiotensinaII.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 4:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {bloqueadores_Delos_Canales_De_Calcio.Nombre()} \n Laboratorio:  \n Componentes: {bloqueadores_Delos_Canales_De_Calcio.Componentes()} \n Cantigad mg: {bloqueadores_Delos_Canales_De_Calcio.CantidadMG()}\n Precio: $ {bloqueadores_Delos_Canales_De_Calcio.Precio()}\n Descuento: {bloqueadores_Delos_Canales_De_Calcio.Descuento()}\n Clasificación: {bloqueadores_Delos_Canales_De_Calcio.Clasificacion()}\n");
+                                                bloqueadores_Delos_Canales_De_Calcio.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 5:
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Fin de las consultas");
+                                                Console.ReadLine();
+                                                Environment.Exit(0);
+
+                                                break;
+                                            default:
+
+                                                Console.WriteLine("Opción no válida.");
+                                                break;
+                                        }
+                                        Console.ReadKey();
+
+                                    }
+                                    while (Option != 5);
+                                    break;
+
+
+                                case 6:
+                                    do
+                                    {
+                                        Console.WriteLine("__________Catalogo de pastillas para la Neumonia__________\n");
+                                        List<string> listaPastillasNeumonia = new List<string>() { "1.Diuréticos ", "\n2.Inhibidores_de_la_enzima_convertidora_de_la_angiotensina", "\n3.AntagonistasdereceptoresdeangiotensinaII", "\n4.Bloqueadores_delos_canales_de_calcio", "\n5.Salir" };
+                                        foreach (string NeumoniaP in listaPastillasNeumonia)
+                                        {
+                                            Console.WriteLine($"{NeumoniaP}");
+                                        }
+                                        Console.WriteLine("\nIngrese el numero de la opcion (1-5)");
+                                        string entrada3 = Console.ReadLine();
+
+                                        while (!int.TryParse(entrada3, out Option))
+                                        {
+                                            Console.WriteLine("Error: Debe ingresar un número entero.");
+                                            Console.WriteLine("\nIngrese el numero de la opcion (1-5)");
+                                            entrada = Console.ReadLine();
+                                        }
+                                        switch (Option)
+                                        {
+                                            case 1:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {amoxicilina.Nombre()} \n Laboratorio:  \n Componentes: {amoxicilina.Componentes()} \n Cantigad mg: {amoxicilina.CantidadMG()}\n Precio: $ {amoxicilina.Precio()}\n Clasificación: {amoxicilina.Clasificacion()}\n");
+                                                amoxicilina.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 2:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {cefalexina.Nombre()} \n Laboratorio:  \n Componentes: {cefalexina.Componentes()} \n Cantigad mg: {cefalexina.CantidadMG()}\n Precio: $ {cefalexina.Precio()}\n Descuento: {cefalexina.Descuento()}\n Clasificación: {cefalexina.Clasificacion()}\n");
+                                                cefalexina.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 3:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {cefadroxilo.Nombre()} \n Laboratorio:  \n Componentes: {cefadroxilo.Componentes()} \n Cantigad mg: {cefadroxilo.CantidadMG()}\n Precio: $ {cefadroxilo.Precio()}\n Clasificación: {cefadroxilo.Clasificacion()}\n");
+                                                cefadroxilo.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 4:
+                                                Console.WriteLine("-----DETALLES-----");
+
+                                                Console.WriteLine($" Nombre: {cefaclor.Nombre()} \n Laboratorio:  \n Componentes: {cefaclor.Componentes()} \n Cantigad mg: {cefaclor.CantidadMG()}\n Precio: $ {cefaclor.Precio()}\n Descuento: {cefaclor.Descuento()}\n Clasificación: {cefaclor.Clasificacion()}\n");
+                                                cefaclor.comprar();
+                                                Console.ReadLine();
+                                                break;
+                                            case 5:
+                                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                                Console.WriteLine("Fin de las consultas");
+                                                Console.ReadLine();
+                                                Environment.Exit(0);
+
+                                                break;
+                                            default:
+
+                                                Console.WriteLine("Opción no válida.");
+                                                break;
+                                        }
+                                        Console.ReadKey();
+
+                                    }
+                                    while (Option != 6);
                                     break;
                                 case 7:
                                     Console.ForegroundColor = ConsoleColor.Cyan;
