@@ -553,7 +553,7 @@ namespace Farmaceutica
                                                 break;
                                            
                                                 
-                                            case 4:
+                                            case 3:
                                                 Console.ForegroundColor = ConsoleColor.Cyan;
                                                 Console.WriteLine("Fin de las consultas");
                                                 Console.ReadLine();
@@ -1054,7 +1054,7 @@ namespace Farmaceutica
                             {
                                 Console.WriteLine(datos);
                             }
-                            Console.WriteLine("1.salir\n");
+                            Console.WriteLine("\n1.salir\n");
                             Console.Write("\nIngrese un número entero: ");
                             string entrada17 = Console.ReadLine();
 
@@ -1089,7 +1089,7 @@ namespace Farmaceutica
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         Console.WriteLine("Fin de las consultas");
                         Console.ReadLine();
-                        Environment.Exit(0);
+                        
 
                         break;
                         default:
